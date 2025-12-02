@@ -45,7 +45,7 @@ namespace OOP_CS
         {
             double dx = other.X - this.X;
             double dy = other.Y - this.Y;
-            return Math.Sqrt(dx * dx + dy);
+            return Math.Sqrt(dx * dx + dy * dy);
         }
     }
 }
