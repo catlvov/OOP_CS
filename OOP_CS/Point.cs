@@ -36,6 +36,67 @@ namespace OOP_CS
             get { return y; }
             set { y = value; }
         }
+
+        //constructors:
+        public Point()
+        {
+            Console.WriteLine($"DefuaultConstructor:\t{this.GetHashCode()}");
+
+        }
+        public Point(double x=0, double y=0)
+        {
+            this.X = x;
+            this.Y = y;
+            Console.WriteLine($"Constructor:\t\t{this.GetHashCode()}");
+        }
+
+        public Point(Point other)
+        {
+            this.X = other.X;
+            this.Y = other.Y;
+            Console.WriteLine($"CopyConstructor:{this.GetHashCode()}");
+        }
+
+        ~Point()
+        {
+            Console.WriteLine($"Destructor:\t\t{this.GetHashCode()}");
+        }
+        //              operator :
+
+        public static Point operator+(Point left,Point right)
+        {
+            //Point result = new Point(
+            //    left.X + right.X,
+            //    left.Y + right.Y
+            //    );
+            return new Point (left.X+right.X, left.Y+right.Y);
+        }
+
+        public static Point operator++(Point obj)
+        {
+            obj.X++;   
+            obj.Y++;
+            return new Point(obj);
+        }
+
+        public static bool operator==(Point left,Point right)
+        {
+            return left.X == right.X && left.y == right.y;
+        }
+        public static bool operator !=(Point left, Point right)
+        {
+            return left.X != right.X || left.y != right.y;
+        }
+
+        public static bool operator <(Point left, Point right)
+        {
+            return left.X + left.y < right.x + right.y;
+        }
+        public static bool operator >(Point left, Point right)
+        {
+            return left.X + left.y > right.x + right.y;
+        }
+
         //              metods:
         public void Print()
         {
